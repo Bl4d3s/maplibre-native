@@ -119,10 +119,10 @@ int main(int argc, char* argv[]) {
 
     map.getStyle().loadURL(style);
     if (latLngBoundsGroup.Get()) {
-        LatLngBounds boundingBox = LatLngBounds::hull(LatLng(args::get(northValue), args::get(westValue)), LatLng(args::get(southValue), args::get(eastValue)));
+        LatLngBounds boundingBox = LatLngBounds::hull(LatLng(args::get(northValue), args::get(westValue)),
+                                                      LatLng(args::get(southValue), args::get(eastValue)));
         map.jumpTo(map.cameraForLatLngBounds(boundingBox, EdgeInsets(), bearing, pitch));
-    }
-    else {
+    } else {
         map.jumpTo(CameraOptions().withCenter(LatLng{lat, lon}).withZoom(zoom).withBearing(bearing).withPitch(pitch));
     }
 
